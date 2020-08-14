@@ -1,1 +1,16 @@
-<h1>HIHIHI</h1>
+<div class="container mt-5">
+  <div class="d-flex flex-row justify-content-between">
+    <form action="/url" method="POST" class="flex-grow-1 mr-2">
+      <div class="form-group">
+        <label for="originalUrl">輸入您的網址:</label>
+        <input type="text" class="form-control" name="originalUrl" id="originalUrl" placeholder="Your URL is ..."
+          required>
+      </div>
+      <button type="submit" class="btn btn-primary mt-2">產生短網址</button>
+    </form>
+    <div class="form-group flex-grow-1">
+      <label for="shortUrl">產生的短網址是:</label>
+      <input type="text" class="form-control" name="shortUrl" id="shortUrl">
+    </div>
+  </div>
+</div>
