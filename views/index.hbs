@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <div class="d-flex flex-row justify-content-between">
-    <form action="/" method="POST" class="flex-grow-1 mr-2">
+    <form action="/" method="POST" class="flex-grow-1 mr-2" id="urlForm">
       <div class="form-group">
         <label for="originalUrl">輸入您的網址:</label>
         <input type="text" class="form-control" name="originalUrl" id="originalUrl" placeholder="Your URL is ..."
@@ -11,7 +11,7 @@
         <span class="mr-2">短網址不存在</span>
       </div>
       {{/if}}
-      <button type="submit" class="btn btn-primary mt-2">產生短網址</button>
+      <button type="button" class="btn btn-primary mt-2" id="submitBtn">產生短網址</button>
     </form>
     <div class="form-group flex-grow-1">
       <label for="shortUrl">產生的短網址是:</label>
