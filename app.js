@@ -5,7 +5,7 @@ const generateUrl = require('./generateUrl')
 const Url = require('./models/url')
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 require('./config/mongoose')
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: 'hbs' }))
