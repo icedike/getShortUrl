@@ -21,11 +21,10 @@ async function generateUrl() {
   console.log('start')
   while (urlExist) {
     urlCode = await generateCode()
+    // check short url
     await Url.exists({ shortUrl: urlCode })
       .then(function (result) {
-        if (!result) {
-          urlExist = false
-        }
+        urlExist = result
       })
       .catch(error => console.log(error))
   }

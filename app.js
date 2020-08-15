@@ -16,12 +16,24 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.post('/url', async (req, res) => {
+app.post('/', async (req, res) => {
   const originalUrl = req.body.originalUrl
   const shortUrl = await generateUrl()
-  console.log(originalUrl, shortUrl)
   Url.create({ originalUrl: originalUrl, shortUrl: shortUrl })
-    .then(() => res.redirect('/'))
+    .then(() => res.render('index', { originalUrl, shortUrl: req.protocol + '://' + req.get('host') + '/' + shortUrl }))
+    .catch(error => console.log(error))
+})
+
+app.get('/:shortUrl', (req, res) => {
+  const shortUrl = req.params.shortUrl
+  Url.findOne({ shortUrl: shortUrl })
+    .then(function (result) {
+      if (result) {
+        res.redirect(result.originalUrl)
+      } else {
+        res.render('index', { urlNotExist: true })
+      }
+    })
     .catch(error => console.log(error))
 })
 
